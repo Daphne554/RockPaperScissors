@@ -1,0 +1,47 @@
+import random
+name = input("Type your game name: ")
+options = ['Rock', 'Paper', 'Scissors']
+user_score = 0
+comp_score = 0
+rounds = 0
+
+while True:
+    user = input('Type r for Rock/p for Paper/s for Scissors or q to quit: ').upper()
+    rounds += 1
+
+    if rounds == 6:
+        print("Session has ended. Start over")
+        break
+
+    if user == 'q':
+        print(f"User: {user_score} Computer: {comp_score}")
+        quit()
+        break
+
+    if user in options:
+        continue
+
+    random_num = random.randint(0, 2)
+    computer = options[random_num]
+
+    if user == computer:
+        print('Its a draw!')
+        quit()
+
+    if user == 'R' and computer == 'Scissors':
+        print(f"{name} wins")
+        user_score +=1
+
+    elif user == 'P' and computer == 'Rock':
+        print(f"{name} wins")
+        user_score += 1
+
+    elif user == 'S' and computer == 'Paper':
+        print(f"{name} wins")
+        user_score += 1
+
+    else:
+        print("Computer wins")
+        comp_score +=1
+
+    print(f"User: {user_score} Computer: {comp_score}")
